@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>covid-19</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+
+<div class="content">
+	<header>
+		<h1 class="judul">Penyebaran Covid-19</h1>
+		<h3 class="deskripsi"></h3>
+	</header>
+ 
+	<div class="menu">
+		<ul>
+			<li  a href="beranda.html"><a class="klik_menu" id="beranda" >Beranda</a></li>
+			<li><a class="klik_menu" id="indeks kewaspadaan">Indeks Kewaspadaan</a></li>
+			<li><a class="klik_menu" id="informasi">Informasi</a></li>
+			<li><a class="klik_menu" id="vaksin">Vaksin</a></li>
+            <li><a class="klik_menu" id="publikasi">Publikasi</a></li>
+            <li><a class="klik_menu" id="unduh aplikasi">Unduh Aplikasi</a></li>
+		</ul>
+	</div>
+ 
+	
+    <div class="halaman">
+	<h2>Kawal informai seputar covid-19</h2>
+	<h2>secara tepat dan akurat</h2>
+    <p>situs ini merupan sumber informasi inisiatif sukarela warganet Indonesia pro-data terdiri dari praktisi kesehatan,aklademisi dan profesional</p>
+    </div>
+ 
+ 
+ 
+
+</div>
+</body>
+ 
+<script>
+    var $list    = $('.m-info');
+var $message = $('.m-message');
+var $modal   = $('.modal');
+var $loader  = $('.loader');
+var $framework;
+
+$('.boxes a').on('click', function(e) {
+  e.preventDefault();
+   
+  $framework = $(this).text();
+   
+  $.ajax({
+    url: 'https://dekontaminasi.com/api/id/covid19/stats',
+    dataType: 'json',
+    beforeSend: function() {
+        $loader.show();
+    }
+  }).done(successFunction)
+    .fail(errorFunction)
+    .always(alwaysFunction);
+});
+	
+</script>
+ 
+</html>
